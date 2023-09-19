@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Pesquisa de Medicamentos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Pesquisa de Medicamentos</h1>
+            <nav>
+                <!-- <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul> -->
+            </nav>
+        </div>
+    </header>
+
+    <section id="pesquisa">
+        <div class="container">
+            <h2>Pesquisar Medicamentos</h2>
+            <form onsubmit="pesquisarMedicamento(event)">
+                <label for="medicamento">Nome do Medicamento:</label>
+                <input type="text" id="medicamento" name="medicamento" required>
+                <ul id="listaResultados"></ul>
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </section>
+<!-- 
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre</h2>
+            <p>Adicione aqui informações sobre o propósito e objetivos do sistema de pesquisa de medicamentos.</p>
+        </div>
+    </section> -->
+<!-- 
+    <section id="contato">
+        <div class="container">
+             <h2>Contato</h2>
+            <p>Forneça informações de contato para os usuários se precisarem de suporte ou tiverem dúvidas.</p> 
+        </div>
+    </section> -->
+
+    <!-- <footer>
+        <div class="container">
+            <p>&copy; 2023</p>
+        </div>
+    </footer> -->
+
+    <script src="script.js"></script>
+</body>
+</html>
