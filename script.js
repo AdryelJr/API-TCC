@@ -77,7 +77,7 @@ const medicamentos = [
     },
     {
         nome: "Dipirona",
-        imagem: "https://farma22.vtexassets.com/arquivos/ids/184751-800-450?v=638133589433970000&width=800&height=450&aspect=true",
+        imagem: "imgApple.png",
         descricao:"Descrição da dipirona"
     }
 ];
@@ -87,7 +87,7 @@ function pesquisarMedicamento(event) {
     
     const medicamento = document.getElementById('medicamento').value.toLowerCase();
     const listaResultados = document.getElementById('listaResultados');
-    listaResultados.innerHTML = '';
+    listaResultados.innerHTML = "";
 
     if (medicamento.trim().length < 3) {
         listaResultados.style.display = 'none'; /* Esconde a lista se o campo estiver vazio */
