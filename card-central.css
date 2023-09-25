@@ -1,0 +1,16 @@
+#detalhesMedicamento{
+    margin: auto;
+    background-color: red;
+    width: 20em;
+    height: 25em;
+}
+
+.medicamentoSelect{
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: aliceblue;
+}
