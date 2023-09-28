@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Pesquisa de Medicamentos</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="allMedicamentos.css">
     <link rel="stylesheet" href="card-central.css">
+    <script src="https://kit.fontawesome.com/48fce49f8c.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
+    <section class="sessao-cima"></section>
     <header>
-        <div class="container">
-            <h1>Sistema...</h1>
-            <nav>
-               
-            </nav>
+        <div class="quadrado-img">
+            <img src="logo.png" alt="logo" width="60px">
         </div>
     </header>
 
@@ -22,18 +23,24 @@
             <h2>Pesquisar </h2>
             <form onsubmit="pesquisarMedicamento(event)">
                 <label for="medicamento">Fazer pesquisa:</label>
-                <input type="text" id="medicamento" name="medicamento" required>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="medicamento" name="medicamento" required>
+                </div>
                 <ul id="listaResultados"></ul>
-                <button type="submit">Pesquisar</button>
             </form>
         </div>
     </section>
 
     <section id="resultado">
         <div id="detalhesMedicamento">
-
         </div>
     </section>
+    
+
+    <section id="allMedicamentos">             
+    </section>
+      
 
     <script src="script.js"></script>
 </body>

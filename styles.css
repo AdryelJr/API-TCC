@@ -6,97 +6,87 @@ body {
     background-color: #f8f8f8;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+.sessao-cima{
+    background-color: #14c6ee;
+    width: 100vw;
+    height: 10px;
 }
 
-header, section, footer {
-    margin-bottom: 40px; /* Maior espaçamento entre as seções */
-    background-color: #fff;
+
+
+/*=============== pesquisa ==============*/
+#pesquisa{
+    display: flex;
+    margin: 0 0 20px 0;
+    background-color: #7fdff5;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+}
+
+.container {
+    margin-left: 5%;
     padding: 20px;
-    border-radius: 8px;
+    width: 700px;
+}
+
+.input-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    background-color: #fff;
+    width: 250px;
+    padding: 0vw 2vw;
+    border-radius: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
-    color: #333;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    width: calc(100% - 20px); /* Subtrai 20 pixels para considerar o padding do botão */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-    transition: border-color 0.3s; /* Adiciona uma transição suave na mudança de cor da borda */
-}
-
-input[type="text"]:focus {
-    border-color: #007bff; /* Muda a cor da borda quando o input está em foco */
-    outline: none; /* Remove a borda azul que alguns navegadores adicionam por padrão */
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+#medicamento{
+    margin: 2px 15px;
+    height: 6vh;
+    font-size: large;
+    background-color: #fff;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s; /* Adiciona uma transição suave na mudança de cor de fundo */
+    border-color: #007bff;
+    outline: none;
 }
 
-button:hover {
-    background-color: #0056b3;
+#medicamento:focus{
+    border-color: #007bff;
+    outline: none;
 }
+
+/*=======================================*/
+
+
+
+
+header, #resultado{
+    margin-bottom: 20px; /* Maior espaçamento entre as seções */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 ul {
     list-style-type: none;
     padding: 0;
+    background-color: #007bff;
+    width: 200px;
 }
 
 ul li {
-    margin-bottom: 5px;
     cursor: pointer;
 }
 
 #listaResultados {
-    margin-top: 10px;
+    margin-left: 25px;
+    padding: 10px;
     display: none;
+    align-items: center;
 }
 
-/* Estilos do Menu de Navegação */
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* Estilos do Footer */
-footer {
-    text-align: center;
-    font-size: 14px;
-    color: #777;
-}

@@ -1,0 +1,78 @@
+#allMedicamentos{
+    margin: 40px 0;
+    padding: 60px 20px;
+    background-color: #c4c4c4;
+  }
+  
+  .linha {
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100vw;
+  }
+  
+  
+  
+  .medicamento-card {
+    margin: 0 0 10% 6%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-left: solid 8px #1bbfe4;
+    border-radius: 10px;
+    padding: 5px 20px;
+    text-align: center;
+    background-color: #fff;
+    width: 280px;
+    height: 420px;
+    flex: 0 0 19%;
+    transition: transform 0.2s;
+  }
+  .medicamento-card:hover{
+    background-color: #f3f3f3;
+    transform: scale(1.03);
+  }
+  
+  .medicamento-card img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  
+  
+  
+  
+  .cardNome{
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    color: #333;
+  }
+  
+  .cardNome:hover{
+    color: #6e6e6e;;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .btnCards{
+    background-color: #1bbfe4;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 8px 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btnCards:hover{
+    background-color: #31a9c4;
+  }
+  
+  .btnCards:focus{
+    outline: none;
+  }
