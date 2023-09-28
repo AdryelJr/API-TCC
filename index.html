@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="allMedicamentos.css">
     <link rel="stylesheet" href="card-central.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/48fce49f8c.js" crossorigin="anonymous"></script>
 
 </head>
@@ -20,12 +21,11 @@
 
     <section id="pesquisa">
         <div class="container">
-            <h2>Pesquisar </h2>
+            <h2>Fazer busca</h2>
             <form onsubmit="pesquisarMedicamento(event)">
-                <label for="medicamento">Fazer pesquisa:</label>
                 <div class="input-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="medicamento" name="medicamento" required>
+                    <input type="text" id="medicamento" name="medicamento" required placeholder="Pesquisa medicamentos...">
                 </div>
                 <ul id="listaResultados"></ul>
             </form>
@@ -42,6 +42,12 @@
     </section>
       
 
+    <footer>
+        <div>
+            &copy; 2023 - Adryel + Alex do pagode
+            <a href="#"><p>contato</p></a>
+        </div>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>

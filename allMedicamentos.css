@@ -1,7 +1,7 @@
 #allMedicamentos{
-    margin: 40px 0;
+    margin: 40px 0 0 0;
     padding: 60px 20px;
-    background-color: #c4c4c4;
+    background-color: #efefef;
   }
   
   .linha {
@@ -21,7 +21,8 @@
     padding: 5px 20px;
     text-align: center;
     background-color: #fff;
-    width: 280px;
+    width: 270px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     height: 420px;
     flex: 0 0 19%;
     transition: transform 0.2s;
@@ -59,18 +60,17 @@
   
   
   .btnCards{
-    background-color: #1bbfe4;
+    background-color: #0bb3d9;
     border: none;
-    border-radius: 4px;
+    border-bottom: 4px solid #01647a;
     color: #fff;
     padding: 8px 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.2s ease-in-out;
   }
   
   .btnCards:hover{
-    background-color: #31a9c4;
+    background-color: #228ea7;
   }
   
   .btnCards:focus{
