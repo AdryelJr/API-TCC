@@ -150,7 +150,10 @@ function pesquisarMedicamento(event) {
     if (resultados.length > 0) {
         resultados.forEach(med => {
             const li = document.createElement('li');
-            li.textContent = med.nome;
+            li.innerHTML = `
+                <span class= "result-lista">${med.nome}</span>
+                <img class="result-img" src="${med.imagem}" alt="${med.imagem}" width="60px">
+            `;
             li.addEventListener('click', () => exibirDetalhes(med));
             listaResultados.appendChild(li);
         });

@@ -1,8 +1,14 @@
 #detalhesMedicamento{
-    margin: auto;
-    background-color: red;
-    width: 20em;
+    color: #333;
+    margin: 20px auto;
+    background-color: #fff;
+    max-width: 450px;
     height: 25em;
+    border-bottom: 4px solid #0bb3d8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 .medicamentoSelect{
@@ -13,4 +19,15 @@
     align-items: center;
     text-align: center;
     background-color: aliceblue;
+}
+
+#detalhesMedicamento img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#detalhesMedicamento p {
+    font-size: 1.2em;
+    color: #333;
 }

@@ -25,7 +25,7 @@
             <form onsubmit="pesquisarMedicamento(event)">
                 <div class="input-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="medicamento" name="medicamento" required placeholder="Pesquisa medicamentos...">
+                    <input type="text" id="medicamento" name="medicamento" required placeholder="Pesquisa medicamentos..." autocomplete="off">
                 </div>
                 <ul id="listaResultados"></ul>
             </form>
@@ -34,7 +34,13 @@
 
    <section id="sessao-globo">
     <section id="resultado">
+        <div id="antes-resul">
+            teste
+        </div>
         <div id="detalhesMedicamento">
+        </div>
+        <div id="depois-resul">
+            teste
         </div>
     </section>
     

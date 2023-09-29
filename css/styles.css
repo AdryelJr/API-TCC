@@ -109,9 +109,14 @@ ul li {
 }
 
 #listaResultados li {
-    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 1.2em;
+    color: #333;
 }
 
 #listaResultados li:hover {
@@ -122,6 +127,7 @@ ul li {
     opacity: 1;
     max-height: 300px; /* Altura máxima ao exibir resultados */
 }
+
 
 
 
