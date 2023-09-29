@@ -8,7 +8,6 @@ body {
 
 .sessao-cima{
     background-color: #0bb3d8;
-    width: 100vw;
     height: 8px;
 }
 
@@ -43,13 +42,13 @@ body {
     margin-top: 2%;
     background-color: #fff;
     width: 280px;
-    padding: 0vw 3vw;
+    padding: 0vw 1.5vw;
     border-radius: 50px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #medicamento{
-    margin: 2px 15px;
+    margin: 0 15px;
     height: 6vh;
     font-size: large;
     background-color: #fff;
@@ -90,13 +89,46 @@ ul li {
     cursor: pointer;
 }
 
+
 #listaResultados {
-    margin-left: 25px;
-    padding: 10px;
-    display: none;
-    align-items: center;
+    position: absolute;
+    max-height: 200px;
+    width: 315px;
+    padding: 0 3vw;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    margin: 0 0 0 5px;
+    padding: 0;
+    overflow-y: auto;
+    border-radius: 5px;
+    z-index: 1;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    opacity: 0;
 }
 
+#listaResultados li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#listaResultados li:hover {
+    background-color: #f0f0f0;
+}
+
+#listaResultados.visible {
+    opacity: 1;
+    max-height: 300px; /* Altura máxima ao exibir resultados */
+}
+
+
+
+#sessao-globo{
+    background-color: #efefef;
+    border-radius: 8px 8px 0 0;
+}
 
 
 

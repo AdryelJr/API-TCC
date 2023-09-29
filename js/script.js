@@ -128,6 +128,11 @@ const medicamentos = [
     }
 ];
 
+function toggleListaResultados(visivel) {
+    const listaResultados = document.getElementById('listaResultados');
+    listaResultados.classList.toggle('visible', visivel);
+}
+
 function pesquisarMedicamento(event) {
     event.preventDefault();
 
@@ -136,7 +141,7 @@ function pesquisarMedicamento(event) {
     listaResultados.innerHTML = "";
 
     if (medicamento.trim().length < 3) {
-        listaResultados.style.display = 'none';
+        toggleListaResultados(false);
         return;
     }
 
@@ -149,9 +154,12 @@ function pesquisarMedicamento(event) {
             li.addEventListener('click', () => exibirDetalhes(med));
             listaResultados.appendChild(li);
         });
-        listaResultados.style.display = 'flex';
+        toggleListaResultados(true);
+        document.querySelector('body').addEventListener('click', function(){
+            toggleListaResultados(false);
+        })
     } else {
-        listaResultados.style.display = 'none';
+        toggleListaResultados(false);
     }
 }
 
