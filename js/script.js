@@ -3,7 +3,9 @@ const medicamentos = [
         nome: "Paracetamol",
         imagem: "paracetamol.jpg",
         descricao: "Alívio de dores e redução da febre.",
-        textoDescricao:"teste"
+        textoDescricao: "...",
+        composicao: "...",
+        valor: "00.00",
     },
     {
         nome: "Ibuprofeno",
@@ -152,13 +154,13 @@ function pesquisarMedicamento(event) {
             const li = document.createElement('li');
             li.innerHTML = `
                 <span class= "result-lista">${med.nome}</span>
-                <img class="result-img" src="${med.imagem}" alt="${med.imagem}" width="60px">
+                <img class="result-img" src="${med.imagem}" alt="${med.nome}" width="60px">
             `;
             li.addEventListener('click', () => exibirDetalhes(med));
             listaResultados.appendChild(li);
         });
         toggleListaResultados(true);
-        document.querySelector('body').addEventListener('click', function(){
+        document.querySelector('body').addEventListener('click', function () {
             toggleListaResultados(false);
         })
     } else {
@@ -175,6 +177,28 @@ function exibirDetalhes(medicamento) {
             <p>${medicamento.descricao}</p>        
         </div>
     `;
+
+    const antesResul = document.getElementById('antes-resul');
+    antesResul.innerHTML = `
+        <h3>Composição</h3>
+        <p>${medicamento.composicao}</p>
+        
+        <br>
+
+        <h3>outra coisa...</h3>
+        <p>pensar em outra coisa...</p>
+    `;
+
+    const depoisResul = document.getElementById('depois-resul');
+    depoisResul.innerHTML = `
+        <h3>pensar em outra coisa...</h3>
+        <p>pensar em outra coisa</p>
+
+        <br>
+
+        <h3>Valor médio</h3>
+        <p>${medicamento.valor}</p>
+    `;
 }
 
 const inputMedicamento = document.getElementById('medicamento');
@@ -187,12 +211,12 @@ function displayAllMedicamentos() {
     const allMedicamentos = document.getElementById('allMedicamentos');
 
     // Ordena os medicamentos por nome
-    medicamentos.sort(function(a,b){
+    medicamentos.sort(function (a, b) {
         const nomeA = a.nome.toLocaleLowerCase();
         const nomeB = b.nome.toLocaleLowerCase();
 
-        if(nomeA < nomeB) return -1;
-        if(nomeA > nomeB) return 1;
+        if (nomeA < nomeB) return -1;
+        if (nomeA > nomeB) return 1;
         return 0;
     });
 
@@ -200,7 +224,7 @@ function displayAllMedicamentos() {
     linhaAtual.classList.add('linha');
 
     // Itera sobre os medicamentos
-    medicamentos.forEach(function(med, index){
+    medicamentos.forEach(function (med, index) {
         const card = document.createElement('div');
         card.classList.add('medicamento-card');
         card.innerHTML = `
@@ -210,7 +234,7 @@ function displayAllMedicamentos() {
             <button class="btnCards">Saiba mais</button>
         `;
 
-        card.addEventListener('click', function(){
+        card.addEventListener('click', function () {
             exibirDetalhes(med);
         });
 
@@ -230,7 +254,7 @@ displayAllMedicamentos();
 
 const btnCard = document.getElementsByClassName('btnCards');
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (event.target.classList.contains('btnCards')) {
         window.location.href = 'saibaMais.html';
     }
