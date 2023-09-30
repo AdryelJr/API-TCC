@@ -1,0 +1,11 @@
+@media screen and (min-width: 1367px) {
+    /* Adicione os estilos que deseja aplicar para telas maiores que 1366 pixels aqui */
+    body {
+      font-size: 18px; /* Exemplo de ajuste de tamanho de fonte para telas maiores */
+    }
+  
+    .medicamento-card {
+        background-color: aqua;
+        width: 300px;
+      }
+  }
