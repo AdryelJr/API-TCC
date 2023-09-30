@@ -201,10 +201,12 @@ function exibirDetalhes(medicamento) {
     `;
 }
 
+document.getElementById('detalhesMedicamento').classList.add('mostrar');
+
 const inputMedicamento = document.getElementById('medicamento');
 inputMedicamento.addEventListener('input', pesquisarMedicamento);
 
-
+toggleListaResultados(false);
 
 
 function displayAllMedicamentos() {

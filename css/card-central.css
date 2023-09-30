@@ -65,3 +65,14 @@
     color: #333;
     margin-bottom: 10px;
 }
+
+
+/* animacao card central */
+
+.detalhes-anima {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.detalhes-anima.fade-in {
+    opacity: 1;
+}
