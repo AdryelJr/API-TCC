@@ -1,12 +1,11 @@
 @media screen and (min-width: 1550px) {
     
     body {
-      font-size: 18px; /* Exemplo de ajuste de tamanho de fonte para telas maiores */
+      font-size: 1.1em; 
     }
   
     .medicamento-card {
-        background-color: aqua;
         width: 19em;
-        height: 29em;
+        height: 28em;
       }
   }
