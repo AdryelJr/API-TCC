@@ -21,9 +21,9 @@
     padding: 5px 20px;
     text-align: center;
     background-color: #fff;
-    width: 17em;
+    width: 16.5em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 26.3em;
+    height: 26.2em;
     flex: 0 0 19%;
     transition: transform 0.2s;
   }
