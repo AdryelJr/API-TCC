@@ -92,7 +92,7 @@ ul li {
 #listaResultados {
     position: absolute;
     max-height: 200px;
-    width: 19.5em;
+    width: 20em;
     padding: 0 3vw;
     background-color: white;
     border: 1px solid #ccc;
@@ -131,6 +131,7 @@ ul li {
 
 
 #sessao-globo{
+    width: 100%;
     background-color: #efefef;
     border-radius: 8px 8px 0 0;
 }

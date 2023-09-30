@@ -14,7 +14,7 @@
 
 .medicamentoSelect{
     display: flex;
-    height: 50vh;
+    height: 25.5em;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -50,8 +50,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-    max-width: 500px;
-    min-width: 350px; /* Ajuste conforme necessário */
+    width: 20em;
 }
 
 #antes-resul h3, #depois-resul h3 {
