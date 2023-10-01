@@ -1,0 +1,2 @@
+Adicionar funcionalidade = Comentarios e avaliação dos usuarios na segunda pagina.
+Ideia de página = Quando clica no botão "saiba mais", abrir segunda pagina e aparecer todas as informações do medicamento e uma parte onde os usuarios vao poder comentar
