@@ -238,6 +238,9 @@ function displayAllMedicamentos() {
 
         card.addEventListener('click', function () {
             exibirDetalhes(med);
+
+            const centroDivDiv = document.getElementById('resultado');
+            centroDivDiv.scrollIntoView({ behavior: 'smooth' });
         });
 
         linhaAtual.appendChild(card);

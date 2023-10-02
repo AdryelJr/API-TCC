@@ -1,2 +1,8 @@
 Adicionar funcionalidade = Comentarios e avaliação dos usuarios na segunda pagina.
 Ideia de página = Quando clica no botão "saiba mais", abrir segunda pagina e aparecer todas as informações do medicamento e uma parte onde os usuarios vao poder comentar
+
+ordernar os medicamentos por ordem alfabetica
+
+criar uma ancora, quando clicar no medicamento na parte de baixo, puxar para o centro do site!
+
+separar medicamentos por categoria, controle especial, nao controlado.
