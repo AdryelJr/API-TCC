@@ -1,0 +1,72 @@
+#allMedicamentos {
+    margin: 40px 0 0 0;
+    padding: 5px 5px;
+    background-color: #efefef;
+}
+
+.medicamentos-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.unidadeMedicamento {
+    box-sizing: border-box;
+    margin: 0.8%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-left: solid 8px #1bbfe4;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+    width: 18.4%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 26em;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 30px 0;
+}
+
+.unidadeMedicamento:hover {
+    filter: brightness(95%);
+    transform: scale(1.03);
+}
+
+.unidadeMedicamento img {
+    max-width: 80%;
+    border-radius: 8px;
+}
+
+.unidadeMedicamento h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    color: #333;
+}
+
+.unidadeMedicamento h3:hover {
+    color: #6e6e6e;
+    ;
+}
+
+.unidadeMedicamento button {
+    background-color: #0bb3d9;
+    border: none;
+    border-bottom: 4px solid #01647a;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.unidadeMedicamento button:hover {
+    background-color: #0d8da9;
+}
+
+.unidadeMedicamento button:focus {
+    outline: none;
+}
