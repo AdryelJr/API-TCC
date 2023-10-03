@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descrição do Medicamento</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        padding: 10px;
+        text-align: center;
+        background-color: aqua;
+        color: aliceblue;
+    }
+
+    .container-img-geral {
+        background-color: #ccc;
+        height: 400px;
+        display: flex;
+    }
+
+    .unimed {
+        background-color: rgb(17, 161, 161);
+        height: 300px;
+        width: 250px;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .unimed button {
+        background-color: blue;
+        color: white;
+        padding: 15px;
+        border: none;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Plataforma de Imagem</h1>
+        <div class="container-img-geral">
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+        import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+        const firebaseConfig = {
+            apiKey: "AIzaSyDYAa9vtcfJ4-sSIYvHQl44H9Srvu1quqY",
+            authDomain: "tccpharma-68df1.firebaseapp.com",
+            databaseURL: "https://tccpharma-68df1-default-rtdb.firebaseio.com",
+            projectId: "tccpharma-68df1",
+            storageBucket: "tccpharma-68df1.appspot.com",
+            messagingSenderId: "527756804281",
+            appId: "1:527756804281:web:8c9f59e4f10d2e84c75b68"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function fetchData(db) {
+            const docsCol = collection(db, 'imagem');
+            const docSnap = await getDocs(docsCol);
+            const docList = docSnap.docs.map(doc => doc.data());
+            return docList;
+        }
+        let imagem = await fetchData(db);
+
+        imagem.sort(function (a, b) {
+            const nomeA = a.nome.toLocaleLowerCase();
+            const nomeB = b.nome.toLocaleLowerCase();
+
+            if (nomeA < nomeB) return -1;
+            if (nomeA > nomeB) return 1;
+            return 0;
+        });
+
+        async function pesquisarMedicamento(event) {
+    event.preventDefault();
+
+    const medicamento = document.getElementById('medicamento').value.toLowerCase();
+    const listaResultados = document.getElementById('listaResultados');
+    listaResultados.innerHTML = "";
+
+    if (medicamento.trim().length < 3) {
+        toggleListaResultados(false);
+        return;
+    }
+
+    const resultados = imagem.filter(med => med.nome.toLowerCase().includes(medicamento));
+
+    if (resultados.length > 0) {
+        resultados.forEach(med => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span class= "result-lista">${med.nome}</span>
+                <img class="result-img" src="${med.url}" alt="${med.nome}" width="60px">
+            `;
+            li.addEventListener('click', () => exibirDetalhes(med));
+            listaResultados.appendChild(li);
+        });
+        toggleListaResultados(true);
+        document.querySelector('body').addEventListener('click', function () {
+            toggleListaResultados(false);
+        })
+    } else {
+        toggleListaResultados(false);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // for (let i = 0; i < imagem.length; i++) {
+
+        //     containerImagem.innerHTML += `
+        //     <div class="unimed">
+        //         <h2>${imagem[i].nome}</h2>
+        //         <img width="200px" src="${imagem[i].url}">
+        //         <button>Saiba mais</button>
+        //     </div>
+        //     `;
+        // }
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
