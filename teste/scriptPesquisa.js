@@ -1,7 +1,7 @@
 const listaRemedios = [
     {
         nome: "Paracetamol",
-        imagem: "paracetamol.jpg",
+        imagem: "https://i.pinimg.com/564x/af/bd/74/afbd74d79fe68f8c7386f8e0a1c780a7.jpg",
         descricao: "Alívio de dores e redução da febre.",
         textoDescricao: "...",
         composicao: "...",
@@ -9,23 +9,23 @@ const listaRemedios = [
     },
     {
         nome: "Ibuprofeno",
-        imagem: "ibuprofeno.jpg",
+        imagem: "https://i.pinimg.com/564x/9d/21/a3/9d21a3f3ed09ddafe2ba6556f8cb9559.jpg",
         descricao: "Anti-inflamatório e analgésico.",
         categoria: ["dor", "inflamação"]
     },
     {
         nome: "Omeprazol",
-        imagem: "https://santaluciadrogaria.vtexassets.com/arquivos/ids/159851-800-auto?v=637638047999330000&width=800&height=auto&aspect=true",
+        imagem: "https://i.pinimg.com/564x/69/f7/97/69f79736d111eb11b8d2268c9d5b98c6.jpg",
         descricao: "Redução da produção de ácido no estômago."
     },
     {
         nome: "Amoxicilina",
-        imagem: "https://www.equipofarma.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/4/0/408358133183am.jpg",
+        imagem: "https://i.pinimg.com/564x/eb/13/1a/eb131a208382fa689d5e5cd21cade99b.jpg",
         descricao: "Antibiótico de amplo espectro."
     },
     {
         nome: "Dipirona",
-        imagem: "https://io.convertiez.com.br/m/drogal/shop/products/images/3970021/large/dipirona-1g-prati-donaduzzi-10-comprimidos_1726.png",
+        imagem: "https://i.pinimg.com/564x/67/dc/5b/67dc5bc48783733491107d76cb8f9a63.jpg",
         descricao: "Analgésico e antipirético."
     },
     {
@@ -105,7 +105,7 @@ const listaRemedios = [
     },
     {
         nome: "Vitamina C",
-        imagem: "./img/vitaminac.png",
+        imagem: "https://i.pinimg.com/564x/9a/d0/fd/9ad0fde6748008f5005b15c327de614a.jpg",
         descricao: "Suplemento de vitamina C."
     },
     {
