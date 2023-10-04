@@ -1,4 +1,4 @@
-const medicamentos = [
+const listaRemedios = [
     {
         nome: "Paracetamol",
         imagem: "paracetamol.jpg",
@@ -142,16 +142,16 @@ function toggleListaResultados(visivel) {
 function pesquisarMedicamento(event) {
     event.preventDefault();
 
-    const medicamento = document.getElementById('medicamento').value.toLowerCase();
+    const inputPrincipal = document.getElementById('inputPrincipal').value.toLowerCase();
     const listaResultados = document.getElementById('listaResultados');
     listaResultados.innerHTML = "";
 
-    if (medicamento.trim().length < 3) {
+    if (inputPrincipal.trim().length < 3) {
         toggleListaResultados(false);
         return;
     }
 
-    const resultados = medicamentos.filter(med => med.nome.toLowerCase().includes(medicamento));
+    const resultados = listaRemedios.filter(med => med.nome.toLowerCase().includes(inputPrincipal));
 
     if (resultados.length > 0) {
         resultados.forEach(med => {
@@ -179,101 +179,13 @@ function pesquisarMedicamento(event) {
 
 
 
-function exibirDetalhes(medicamento) {
-    const detalhesDiv = document.getElementById('detalhesMedicamento');
-    detalhesDiv.innerHTML = `
-        <div class="medicamentoSelect">
-            <h2>${medicamento.nome}</h2>
-            <img src="${medicamento.imagem}" alt="${medicamento.nome}" width="280px">
-            <p>${medicamento.descricao}</p>        
-        </div>
-    `;
 
-    const antesResul = document.getElementById('antes-resul');
-    antesResul.innerHTML = `
-        <h3>Composição</h3>
-        <p>${medicamento.composicao}</p>
-        
-        <br>
-
-        <h3>outra coisa...</h3>
-        <p>pensar em outra coisa...</p>
-    `;
-
-    const depoisResul = document.getElementById('depois-resul');
-    depoisResul.innerHTML = `
-        <h3>pensar em outra coisa...</h3>
-        <p>pensar em outra coisa</p>
-
-        <br>
-
-        <h3>Valor médio</h3>
-        <p>${medicamento.valor}</p>
-    `;
-}
 
 document.getElementById('detalhesMedicamento').classList.add('mostrar');
 
-const inputMedicamento = document.getElementById('medicamento');
+const inputMedicamento = document.getElementById('inputPrincipal');
 inputMedicamento.addEventListener('input', pesquisarMedicamento);
 
 toggleListaResultados(false);
-
-
-function displayAllMedicamentos() {
-    const allMedicamentos = document.getElementById('allMedicamentos');
-
-    // Ordena os medicamentos por nome
-    medicamentos.sort(function (a, b) {
-        const nomeA = a.nome.toLocaleLowerCase();
-        const nomeB = b.nome.toLocaleLowerCase();
-
-        if (nomeA < nomeB) return -1;
-        if (nomeA > nomeB) return 1;
-        return 0;
-    });
-
-    let linhaAtual = document.createElement('div');
-    linhaAtual.classList.add('linha');
-
-    // Itera sobre os medicamentos
-    medicamentos.forEach(function (med, index) {
-        const card = document.createElement('div');
-        card.classList.add('medicamento-card');
-        card.innerHTML = `
-            <h3 class="cardNome">${med.nome}</h3>
-            <img src="${med.imagem}" alt="${med.nome}">
-            <p>${med.descricao}</p>
-            <button class="btnCards">Saiba mais</button>
-        `;
-
-        card.addEventListener('click', function () {
-            exibirDetalhes(med);
-
-            const centroDivDiv = document.getElementById('resultado');
-            centroDivDiv.scrollIntoView({ behavior: 'smooth' });
-        });
-
-        linhaAtual.appendChild(card);
-
-        if ((index + 1) % 5 === 0 || index === medicamentos.length - 1) {
-            allMedicamentos.appendChild(linhaAtual);
-            linhaAtual = document.createElement('div');
-            linhaAtual.classList.add('linha');
-        }
-    });
-
-    allMedicamentos.style.display = 'flex';
-}
-
-displayAllMedicamentos();
-
-const btnCard = document.getElementsByClassName('btnCards');
-
-document.addEventListener('click', function (event) {
-    if (event.target.classList.contains('btnCards')) {
-        window.location.href = 'saibaMais.html';
-    }
-});
 
 
