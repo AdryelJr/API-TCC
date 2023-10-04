@@ -104,57 +104,63 @@
 
 
 
-        function exibirDetalhes(medicamentos) {
+        function exibirDetalhes(medicamento) {
             const detalhesDiv = document.getElementById('detalhesMedicamento');
             detalhesDiv.innerHTML = `
-            <div class="medicamentoSelect">
-            <h2>${medicamentos.nome}</h2>
-            <img src="${medicamentos.url}" alt="${medicamentos.nome}" width="280px">
-            <p>${medicamentos.descricao}</p>        
-            </div>
+                <div class="medicamentoSelect">
+                <h2>${medicamento.nome}</h2>
+                <img src="${medicamento.url}" alt="${medicamento.nome}" width="280px">
+                <p>${medicamento.descricao}</p>        
+                </div>
             `;
 
             const antesResul = document.getElementById('antes-resul');
             antesResul.innerHTML = `
-            <h3>Composição</h3>
-            <p>${medicamentos.composicao}</p>
-        
-            <br>
+                <h3>Composição</h3>
+                <p>${medicamento.composicao}</p>
 
-            <h3>outra coisa...</h3>
-            <p>pensar em outra coisa...</p>
+                <br>
+
+                <h3>outra coisa...</h3>
+                <p>pensar em outra coisa...</p>
             `;
 
             const depoisResul = document.getElementById('depois-resul');
             depoisResul.innerHTML = `
-            <h3>pensar em outra coisa...</h3>
-            <p>pensar em outra coisa</p>
+                <h3>pensar em outra coisa...</h3>
+                <p>pensar em outra coisa</p>
 
-            <br>
+                <br>
 
-            <h3>Valor médio</h3>
-            <p>${medicamentos.valor}</p>
+                <h3>Valor médio</h3>
+                <p>${medicamento.valor}</p>
             `;
         }
-
-
-
-
 
         async function todosMedicamentos() {
             const allMedicamentos = document.getElementById('allMedicamentos');
 
             for (let i = 0; i < medicamentos.length; i++) {
                 const remedio = medicamentos[i];
-                allMedicamentos.innerHTML += `
-                <div onclick="detalhes()" class="unidadeMedicamento">
-                    <h3>${medicamentos[i].nome}</h3>
-                    <img src="${medicamentos[i].url}">
-                    <p>${medicamentos[i].descricao}</p>
+                const unidadeMedicamento = document.createElement('div');
+                unidadeMedicamento.classList.add('unidadeMedicamento');
+                unidadeMedicamento.id = `unidade${remedio.nome}`;
+
+                unidadeMedicamento.innerHTML = `
+                    <h3>${remedio.nome}</h3>
+                    <img src="${remedio.url}">
+                    <p>${remedio.descricao}</p>
                     <button>Saiba mais</button>
-                </div>
-            `;
-                console.log(remedio)
+                `;
+
+                allMedicamentos.appendChild(unidadeMedicamento);
+                console.log(remedio);
+
+                unidadeMedicamento.addEventListener('click', function () {
+                    exibirDetalhes(remedio);
+                    const centroDivDiv = document.getElementById('resultado');
+                    centroDivDiv.scrollIntoView({ behavior: 'smooth' });
+                })
             }
         }
 
@@ -168,11 +174,10 @@
 
 
 
-        const inputPrincipal = document.getElementById('inputPricipal');
-        inputPrincipal.addEventListener('input', async function(){
-            console.log('input.value')
-        });
-        
+
+
+
+
 
 
 
