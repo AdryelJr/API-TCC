@@ -1,7 +1,7 @@
 #detalhesMedicamento{
     color: #333;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: rgb(246, 246, 246);
     max-width: 450px;
     min-width: 430px;
     height: 25em;
@@ -19,7 +19,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: aliceblue;
+    background-color: #fff;
 }
 
 #detalhesMedicamento img {
