@@ -28,6 +28,12 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
     font-size: 2.5em;
 }
+#pesquisa p{
+    margin-top: -15px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    font-size: 1.5em;
+}
 
 .container {
     margin-left: 5%;
@@ -40,24 +46,26 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 2%;
-    background-color: #fff;
-    width: 280px;
+    background-color: #f4f4f4;
+    width: 300px;
     padding: 0vw 1.5vw;
-    border-radius: 50px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-#medicamento{
+#inputPrincipal{
+    color: black;
     margin: 0 15px;
     height: 6vh;
-    font-size: large;
-    background-color: #fff;
+    width: 100vw;
+    font-size: 16px;
+    background-color: transparent;
     border: none;
     border-color: #007bff;
     outline: none;
 }
 
-#medicamento:focus{
+#inputPrincipal:focus{
     border-color: #007bff;
     outline: none;
 }
@@ -67,7 +75,70 @@ body {
 
 
 
-header, #resultado{
+
+
+/* =================== SESSAO DESTAQUE ====================== */
+
+#destaque{
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 4em 0;
+}
+
+.container-destaque{
+    width: 99vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+.destaque-item{
+    border: 1px solid #e6e6e6;
+    border-radius: 15px;
+    width: 30%;
+    text-align: center;
+    padding: 2em;
+    margin: 1em;
+}
+
+.destaque-item:hover {
+    transform: scale(1.05); /* Aumenta o tamanho quando o mouse está sobre o item */
+}
+
+
+.destaque-item i {
+    font-size: 3em; /* Tamanho do ícone */
+    margin-bottom: 10px; /* Espaçamento inferior entre o ícone e o título */
+}
+
+.destaque-item h3 {
+    font-size: 1.5em; /* Tamanho do título */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+.destaque-item p {
+    font-size: 1.1em; /* Tamanho do texto */
+}
+
+
+/* ========================================================== */
+
+
+header{
+    align-items: center;
+    height: 5em;
+    display: flex;
+    margin-bottom: 20px; /* Maior espaçamento entre as seções */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.quadrado-img{
+    margin: 0 50px;
+}
+
+#resultado{
     margin-bottom: 20px; /* Maior espaçamento entre as seções */
     background-color: #fff;
     padding: 20px;

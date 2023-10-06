@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,53 +13,244 @@
     <script src="https://kit.fontawesome.com/48fce49f8c.js" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
     <section class="sessao-cima"></section>
     <header>
         <div class="quadrado-img">
             <img src="img/logo.png" alt="logo" width="60px">
         </div>
+        <form onsubmit="pesquisarMedicamento(event)">
+            <div class="input-wrapper">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="inputPrincipal" required placeholder="Pesquisa medicamentos..."
+                    autocomplete="off">
+            </div>
+            <ul id="listaResultados"></ul>
+        </form>
     </header>
 
     <section id="pesquisa">
         <div class="container">
-            <h2>Fazer busca</h2>
-            <form onsubmit="pesquisarMedicamento(event)">
-                <div class="input-wrapper">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="medicamento" name="medicamento" required placeholder="Pesquisa medicamentos..." autocomplete="off">
-                </div>
-                <ul id="listaResultados"></ul>
-            </form>
+            <h2>Bem-vindo ao "Nome do site"</h2>
+            <p>Encontre informações detalhadas sobre uma variedade de medicamentos.</p>
         </div>
     </section>
 
-   <section id="sessao-globo">
-    <section id="resultado">
-        <div id="antes-resul">
-            <!-- informações do medicamento selecionado -->
-        </div>
-        <div id="detalhesMedicamento" class="detalhes-anima">
-        </div>
-        <div id="depois-resul">
-           <!-- informações do medicamento selecionado -->
+
+
+    <section id="destaque">
+        <h2>Recursos Destacados</h2>
+        <div class="container-destaque">
+            <div class="destaque-item">
+                <i class="fas fa-pills"></i>
+                <h3>Ampla Variedade de Medicamentos</h3>
+                <p>Encontre informações sobre uma ampla variedade de medicamentos, desde analgésicos até antibióticos.</p>
+            </div>
+            <div class="destaque-item">
+                <i class="fas fa-search"></i>
+                <h3>Pesquisa Rápida e Eficiente</h3>
+                <p>Nossa ferramenta de pesquisa facilita a localização de informações precisas sobre os medicamentos que você precisa.</p>
+            </div>
+            <div class="destaque-item">
+                <i class="fas fa-info-circle"></i>
+                <h3>Detalhes Abrangentes</h3>
+                <p>Obtenha detalhes abrangentes sobre a composição, indicações, contra-indicações e muito mais de cada medicamento.</p>
+            </div>
         </div>
     </section>
     
 
-    <section id="allMedicamentos">             
+
+
+
+    <section id="sessao-globo">
+        <section id="resultado">
+            <div id="antes-resul">
+                <!-- informações do medicamento selecionado -->
+            </div>
+            <div id="detalhesMedicamento" class="detalhes-anima">
+            </div>
+            <div id="depois-resul">
+                <!-- informações do medicamento selecionado -->
+            </div>
+        </section>
+
+
+        <section id="allMedicamentos" class="medicamentos-container">
+        </section>
+
+
     </section>
 
-
-   </section>
-      
 
     <footer>
         <div>
             &copy; 2023 - Adryel + Alex do pagode
-            <a href="#"><p>contato</p></a>
+            <a href="#">
+                <p>contato</p>
+            </a>
         </div>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script type="module">
+
+
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+
+        import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
+        const firebaseConfig = {
+            apiKey: "AIzaSyDYAa9vtcfJ4-sSIYvHQl44H9Srvu1quqY",
+            authDomain: "tccpharma-68df1.firebaseapp.com",
+            databaseURL: "https://tccpharma-68df1-default-rtdb.firebaseio.com",
+            projectId: "tccpharma-68df1",
+            storageBucket: "tccpharma-68df1.appspot.com",
+            messagingSenderId: "527756804281",
+            appId: "1:527756804281:web:8c9f59e4f10d2e84c75b68"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function fetchData(db) {
+            const docsCol = collection(db, 'medicamentos');
+            const docSnap = await getDocs(docsCol);
+            const docList = docSnap.docs.map(doc => doc.data());
+            return docList;
+        }
+        let medicamentos = await fetchData(db);
+
+        medicamentos.sort(function (a, b) {
+            const nomeA = a.nome.toLocaleLowerCase();
+            const nomeB = b.nome.toLocaleLowerCase();
+
+            if (nomeA < nomeB) return -1;
+            if (nomeA > nomeB) return 1;
+            return 0;
+        });
+
+
+
+
+        function exibirDetalhes(medicamento) {
+            const detalhesDiv = document.getElementById('detalhesMedicamento');
+            detalhesDiv.innerHTML = `
+                <div class="medicamentoSelect">
+                <h2>${medicamento.nome}</h2>
+                <img src="${medicamento.url}" alt="${medicamento.nome}" width="280px">
+                <p>${medicamento.descricao}</p>        
+                </div>
+            `;
+
+            const antesResul = document.getElementById('antes-resul');
+            antesResul.innerHTML = `
+                <h3>Composição</h3>
+                <p>${medicamento.composicao}</p>
+
+                <br>
+
+                <h3>Valor médio</h3>
+                <p>${medicamento.valor}</p>
+            `;
+
+            const depoisResul = document.getElementById('depois-resul');
+            depoisResul.innerHTML = `
+                <h3>Descrição</h3>
+                <p>${medicamento.descricaoDetalhada}</p>
+
+            `;
+        }
+
+        async function todosMedicamentos() {
+            const allMedicamentos = document.getElementById('allMedicamentos');
+
+            for (let i = 0; i < medicamentos.length; i++) {
+                const remedio = medicamentos[i];
+                const unidadeMedicamento = document.createElement('div');
+                unidadeMedicamento.classList.add('unidadeMedicamento');
+                unidadeMedicamento.id = `unidade${remedio.nome}`;
+
+                unidadeMedicamento.innerHTML = `
+                    <h3>${remedio.nome}</h3>
+                    <img src="${remedio.url}">
+                    <p>${remedio.descricao}</p>
+                    <a href="infoDetalhes.html"><button>Informações detalhadas</button></a>
+                `;
+
+                allMedicamentos.appendChild(unidadeMedicamento);
+
+                unidadeMedicamento.addEventListener('click', function () {
+                    exibirDetalhes(remedio);
+                    const centroDivDiv = document.getElementById('resultado');
+                    centroDivDiv.scrollIntoView({ behavior: 'smooth' });
+                })
+            }
+        }
+
+        todosMedicamentos();
+
+
+
+
+
+
+
+
+
+
+        function toggleListaResultados(visivel) {
+            const listaResultados = document.getElementById('listaResultados');
+            listaResultados.classList.toggle('visible', visivel);
+        }
+
+        async function pesquisarMedicamento(event) {
+            event.preventDefault();
+
+            const inputPrincipal = document.getElementById('inputPrincipal').value.toLowerCase();
+            const listaResultados = document.getElementById('listaResultados');
+            listaResultados.innerHTML = "";
+
+            if (inputPrincipal.trim().length < 3) {
+                toggleListaResultados(false);
+                return;
+            }
+
+            const resultados = medicamentos.filter(med => med.nome.toLowerCase().includes(inputPrincipal));
+
+            if (resultados.length > 0) {
+                resultados.forEach(med => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                <span class= "result-lista">${med.nome}</span>
+                <img class="result-img" src="${med.url}" alt="${med.nome}" width="60px">
+            `;
+                    li.addEventListener('click', () => exibirDetalhes(med));
+                    listaResultados.appendChild(li);
+                });
+                toggleListaResultados(true);
+                document.querySelector('body').addEventListener('click', function () {
+                    toggleListaResultados(false);
+                })
+            } else {
+                toggleListaResultados(false);
+            }
+        }
+
+
+        document.getElementById('detalhesMedicamento').classList.add('mostrar');
+
+        const inputMedicamento = document.getElementById('inputPrincipal');
+        inputMedicamento.addEventListener('input', pesquisarMedicamento);
+
+        toggleListaResultados(false);
+
+
+
+
+
+
+    </script>
 </body>
+
 </html>

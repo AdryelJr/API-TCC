@@ -63,7 +63,7 @@
             </a>
         </div>
     </footer>
-    <script src="scriptPesquisa.js"></script>
+
     <script type="module">
 
 
@@ -176,10 +176,51 @@
 
 
 
+        function toggleListaResultados(visivel) {
+            const listaResultados = document.getElementById('listaResultados');
+            listaResultados.classList.toggle('visible', visivel);
+        }
+
+        async function pesquisarMedicamento(event) {
+            event.preventDefault();
+
+            const inputPrincipal = document.getElementById('inputPrincipal').value.toLowerCase();
+            const listaResultados = document.getElementById('listaResultados');
+            listaResultados.innerHTML = "";
+
+            if (inputPrincipal.trim().length < 3) {
+                toggleListaResultados(false);
+                return;
+            }
+
+            const resultados = medicamentos.filter(med => med.nome.toLowerCase().includes(inputPrincipal));
+
+            if (resultados.length > 0) {
+                resultados.forEach(med => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                <span class= "result-lista">${med.nome}</span>
+                <img class="result-img" src="${med.url}" alt="${med.nome}" width="60px">
+            `;
+                    li.addEventListener('click', () => exibirDetalhes(med));
+                    listaResultados.appendChild(li);
+                });
+                toggleListaResultados(true);
+                document.querySelector('body').addEventListener('click', function () {
+                    toggleListaResultados(false);
+                })
+            } else {
+                toggleListaResultados(false);
+            }
+        }
 
 
+        document.getElementById('detalhesMedicamento').classList.add('mostrar');
 
+        const inputMedicamento = document.getElementById('inputPrincipal');
+        inputMedicamento.addEventListener('input', pesquisarMedicamento);
 
+        toggleListaResultados(false);
 
 
 
