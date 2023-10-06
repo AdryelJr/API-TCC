@@ -105,6 +105,11 @@ body {
 }
 
 
+#destaque h2{
+    font-size: 2em;
+    margin-bottom: 6%;
+}
+
 .destaque-item i {
     font-size: 3em; /* Tamanho do ícone */
     margin-bottom: 10px; /* Espaçamento inferior entre o ícone e o título */
