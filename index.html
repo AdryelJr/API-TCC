@@ -16,11 +16,11 @@
 
 <body>
     <section class="sessao-cima"></section>
-    <header>
+    <header id="header-principal">
         <div class="quadrado-img">
             <img src="img/logo.png" alt="logo" width="60px">
         </div>
-        <form onsubmit="pesquisarMedicamento(event)">
+        <form id="form-principal" onsubmit="pesquisarMedicamento(event)">
             <div class="input-wrapper">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" id="inputPrincipal" required placeholder="Pesquisa medicamentos..."
@@ -29,10 +29,22 @@
             <ul id="listaResultados"></ul>
         </form>
 
-        <div class="menu-login">
-            
+        <div class="profile-icon">
+            <i class="fas fa-user" onclick="toggleSidebar()"></i>
         </div>
     </header>
+
+    <div class="sidebar">
+        <div class="perfil-cima">
+            <img src="img/dorflex.png" alt="perfil">
+            <span id="username">Adryel</span>
+        </div>
+        <div class="perfil-baixo">
+            <a href="#">Login</a>
+            <a href="#">Sair</a>
+        </div>
+    </div>
+
 
     <section id="pesquisa">
         <div class="container">
@@ -43,27 +55,31 @@
 
 
 
+
     <section id="destaque">
         <h2>Recursos Destacados</h2>
         <div class="container-destaque">
             <div class="destaque-item">
                 <i class="fas fa-pills"></i>
                 <h3>Ampla Variedade de Medicamentos</h3>
-                <p>Encontre informações sobre uma ampla variedade de medicamentos, desde analgésicos até antibióticos.</p>
+                <p>Encontre informações sobre uma ampla variedade de medicamentos, desde analgésicos até antibióticos.
+                </p>
             </div>
             <div class="destaque-item">
                 <i class="fas fa-search"></i>
                 <h3>Pesquisa Rápida e Eficiente</h3>
-                <p>Nossa ferramenta de pesquisa facilita a localização de informações precisas sobre os medicamentos que você precisa.</p>
+                <p>Nossa ferramenta de pesquisa facilita a localização de informações precisas sobre os medicamentos que
+                    você precisa.</p>
             </div>
             <div class="destaque-item">
                 <i class="fas fa-info-circle"></i>
                 <h3>Detalhes Abrangentes</h3>
-                <p>Obtenha detalhes abrangentes sobre a composição, indicações, contra-indicações e muito mais de cada medicamento.</p>
+                <p>Obtenha detalhes abrangentes sobre a composição, indicações, contra-indicações e muito mais de cada
+                    medicamento.</p>
             </div>
         </div>
     </section>
-    
+
 
 
 
@@ -97,6 +113,8 @@
         </div>
     </footer>
 
+
+    <script src="js/index.js"></script>
     <script type="module">
 
 
