@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/allMedicamentos.css">
     <link rel="stylesheet" href="css/card-central.css">
     <link rel="stylesheet" href="css/mediaQ.css">
+    <link rel="stylesheet" href="css/slideBar.css">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/48fce49f8c.js" crossorigin="anonymous"></script>
 
@@ -29,26 +30,26 @@
             <ul id="listaResultados"></ul>
         </form>
 
-        <div class="profile-icon">
-            <i class="fas fa-user" onclick="toggleSidebar()"></i>
+        <div class="profile-icon" id="profileIcon">
+            <i class="fas fa-user"></i>
         </div>
     </header>
 
     <div class="sidebar">
         <div class="perfil-cima">
-            <img src="img/dorflex.png" alt="perfil">
+            <img src="img/logo.png" alt="perfil" width="70px">
             <span id="username">Adryel</span>
         </div>
         <div class="perfil-baixo">
-            <a href="#">Login</a>
-            <a href="#">Sair</a>
+            <a href="#"><i class="fa-solid fa-user"></i>Login</a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
         </div>
     </div>
 
 
     <section id="pesquisa">
         <div class="container">
-            <h2>Bem-vindo ao "Nome do site"</h2>
+            <h2>Bem-vindo ao BuscaPharma</h2>
             <p>Encontre informações detalhadas sobre uma variedade de medicamentos.</p>
         </div>
     </section>
@@ -106,7 +107,7 @@
 
     <footer>
         <div>
-            &copy; 2023 - Adryel + Alex do pagode
+            &copy; 2023 - Adryel + Alex
             <a href="#">
                 <p>contato</p>
             </a>
@@ -248,6 +249,10 @@
                 <img class="result-img" src="${med.url}" alt="${med.nome}" width="60px">
             `;
                     li.addEventListener('click', () => exibirDetalhes(med));
+                    li.addEventListener('click', function () {
+                        const centroDivDiv = document.getElementById('resultado');
+                        centroDivDiv.scrollIntoView({ behavior: 'smooth' });
+                    });
                     listaResultados.appendChild(li);
                 });
                 toggleListaResultados(true);
