@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/CSS/style.css">
     <title>Cadastro</title>
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -157,71 +156,6 @@
         </div>
     </div>
 </body>
-<script type="module">
-
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-    import {
-        getAuth,
-        createUserWithEmailAndPassword,
-        updateProfile
-    } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyDYAa9vtcfJ4-sSIYvHQl44H9Srvu1quqY",
-        authDomain: "tccpharma-68df1.firebaseapp.com",
-        databaseURL: "https://tccpharma-68df1-default-rtdb.firebaseio.com",
-        projectId: "tccpharma-68df1",
-        storageBucket: "tccpharma-68df1.appspot.com",
-        messagingSenderId: "527756804281",
-        appId: "1:527756804281:web:8c9f59e4f10d2e84c75b68"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth()
-
-    var fullName = document.getElementById("fullName");
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-
-    window.signup = function (e) {
-        e.preventDefault();
-
-        var obj = {
-            email: email.value,
-            password: password.value,
-        };
-
-        createUserWithEmailAndPassword(auth, obj.email, obj.password)
-            .then(function (success) {
-                updateProfile(auth.currentUser, {
-                    displayName: fullName.value,
-                }).then(function () {
-                    window.location.replace('index.html');
-                    alert("Signup successful");
-                }).catch(function (error) {
-                    alert("Erro ao atualizar perfil: " + error.message);
-                });
-            })
-            .catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-
-                switch (errorCode) {
-                    case 'auth/invalid-email':
-                        alert("Endereço de email inválido.");
-                        break;
-                    case 'auth/email-already-in-use':
-                        alert("Este endereço de email já está em uso.");
-                        break;
-                    case 'auth/weak-password':
-                        alert("A senha deve ter pelo menos 6 caracteres.");
-                        break;
-                    default:
-                        alert(errorMessage);
-                }
-            });
-    };
-
-</script>
+<script type="module" src="js/criandoConta.js"></script>
 
 </html>
