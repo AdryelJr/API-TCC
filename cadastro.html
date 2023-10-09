@@ -71,7 +71,7 @@
                 updateProfile(auth.currentUser, {
                     displayName: fullName.value,
                 }).then(function () {
-                    window.location.replace('HTML/login.html');
+                    window.location.replace('index.html');
                     alert("Signup successful");
                 }).catch(function (error) {
                     alert("Erro ao atualizar perfil: " + error.message);
