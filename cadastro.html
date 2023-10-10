@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/style.css">
     <title>Cadastro</title>
     <style>
         * {
@@ -115,11 +114,70 @@
             color: #1bbfe4;
             text-decoration: none;
         }
+
+        .notificacaoVerde {
+            background-color: rgb(236, 236, 236);
+            color: green;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+        .notificacaoVermelho1 {
+            background-color: rgb(236, 236, 236);
+            color: red;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+        .notificacaoVermelho2 {
+            background-color: rgb(236, 236, 236);
+            color: red;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+        .notificacaoVermelho3 {
+            background-color: rgb(236, 236, 236);
+            color: red;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+
     </style>
 
 </head>
 
 <body>
+    <div id="notificacaoVerde" class="notificacaoVerde">
+        Conta criada com sucesso!
+    </div>
+    <div id="notificacaoVermelho1" class="notificacaoVermelho1">
+        Endereço de email inválido.
+    </div>
+    <div id="notificacaoVermelho2" class="notificacaoVermelho2">
+        Este endereço de email já está em uso.
+    </div>
+    <div id="notificacaoVermelho3" class="notificacaoVermelho3">
+        A senha deve ter pelo menos 6 caracteres.
+    </div>
+
     <div class="wrapper-signup">
         <h1>Autenticação</h1>
         <div class="form-signup">

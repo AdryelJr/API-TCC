@@ -52,6 +52,7 @@ window.signup = function (e) {
     })
         .then(() => {
             console.log('Conta criada com sucesso')
+
         })
         .catch(() => {
             console.log('Conta nao criada', e.message)
@@ -63,9 +64,9 @@ window.signup = function (e) {
             updateProfile(auth.currentUser, {
                 displayName: fullName.value,
             }).then(function () {
+                mostrarNotificacaoVerde();
                 localStorage.setItem('nomeUsuario', fullName.value);
                 window.location.replace('index.html');
-                alert("Signup successful");
             }).catch(function (error) {
                 alert("Erro ao atualizar perfil: " + error.message);
             });
@@ -76,13 +77,13 @@ window.signup = function (e) {
 
             switch (errorCode) {
                 case 'auth/invalid-email':
-                    alert("Endereço de email inválido.");
+                    mostrarNotificacaoVermelho1()
                     break;
                 case 'auth/email-already-in-use':
-                    alert("Este endereço de email já está em uso.");
+                    mostrarNotificacaoVermelho2()
                     break;
                 case 'auth/weak-password':
-                    alert("A senha deve ter pelo menos 6 caracteres.");
+                    mostrarNotificacaoVermelho3()
                     break;
                 default:
                     alert(errorMessage);
@@ -91,9 +92,33 @@ window.signup = function (e) {
 };
 
 
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        var nomeUsuario = localStorage.getItem('nomeUsuario');
-        document.getElementById('usuarioNome').innerText = nomeUsuario;
-    }
-});
+function mostrarNotificacaoVerde() {
+    var notificacaoVerde = document.getElementById("notificacaoVerde");
+    notificacaoVerde.style.display = "block";
+    setTimeout(function () {
+        notificacaoVerde.style.display = "none";
+    }, 4000);
+}
+
+function mostrarNotificacaoVermelho1() {
+    var notificacaoVermelho1 = document.getElementById("notificacaoVermelho1");
+    notificacaoVermelho1.style.display = "block";
+    setTimeout(function () {
+        notificacaoVermelho1.style.display = "none";
+    }, 4000);
+}
+
+function mostrarNotificacaoVermelho2() {
+    var notificacaoVermelho2 = document.getElementById("notificacaoVermelho2");
+    notificacaoVermelho2.style.display = "block";
+    setTimeout(function () {
+        notificacaoVermelho2.style.display = "none";
+    }, 4000);
+}
+function mostrarNotificacaoVermelho3() {
+    var notificacaoVermelho3 = document.getElementById("notificacaoVermelho3");
+    notificacaoVermelho3.style.display = "block";
+    setTimeout(function () {
+        notificacaoVermelho3.style.display = "none";
+    }, 4000);
+}
