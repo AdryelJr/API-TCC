@@ -37,6 +37,7 @@
             margin: auto;
             width: 95%;
         }
+
         .esquerda {
             position: relative;
             padding: 1.5em 0;
@@ -48,6 +49,7 @@
             align-items: center;
             border: #1bbfe4 2px solid;
         }
+
         .esquerda::after {
             content: "";
             position: absolute;
@@ -70,18 +72,18 @@
             text-shadow: #cccccc 0 1px 4px;
         }
 
-        .direita h1{
+        .direita h1 {
             margin: .5em 0;
             font-weight: 200;
         }
 
-        form{
+        form {
             text-align: start;
             padding: 0 2.5em 0 2.5em;
             font-size: larger;
         }
 
-        form input{
+        form input {
             padding: 1em;
             border-radius: 5px;
             border: 1px solid #444;
@@ -104,11 +106,6 @@
         form button:hover {
             background-color: #0694b4;
         }
-
-
-
-
-
     </style>
 </head>
 
@@ -165,8 +162,17 @@
 
             signInWithEmailAndPassword(auth, email, password)
                 .then(function (success) {
-                    window.location.replace('index.html');
+                    const auth = getAuth();
+                    const user = auth.currentUser;
+                    if (user) {
+                        const uid = user.uid;
+                        console.log(uid)
+                        localStorage.setItem('uid', uid)
+                    } else {
+                        console.log('eeeeeeeeeeeeeeeeeee')
+                    }
                     alert("Login successful");
+                    window.location.replace('index.html');
                 })
                 .catch(function (error) {
                     var errorCode = error.code;
