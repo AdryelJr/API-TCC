@@ -91,3 +91,13 @@
 .perfil-baixo i{
     margin-right: 0.7em;
 }
+
+
+
+
+#contadorTotal{
+    position: absolute;
+    bottom: 40px;
+    font-size: small;
+    left: 25px;
+}

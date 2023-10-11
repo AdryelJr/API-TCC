@@ -44,6 +44,8 @@
             <a id="usuarioNomeB" href="perfil.html"><i class="fa-solid fa-user"></i><span id="usuarioNome"></span></a>
             <a href="#" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
         </div>
+
+        <div id="contadorTotal"></div>
     </div>
 
 
@@ -171,6 +173,7 @@
         let contas = await fetchDataContas(db);
 
         function exibirDetalhes(medicamento) {
+
             const detalhesDiv = document.getElementById('detalhesMedicamento');
             detalhesDiv.innerHTML = `
                 <div class="medicamentoSelect">
@@ -182,13 +185,13 @@
 
             const antesResul = document.getElementById('antes-resul');
             antesResul.innerHTML = `
-                <h3>Composição</h3>
-                <p>${medicamento.composicao}</p>
+                <h3>Efeitos Colaterais</h3>
+                <p>${medicamento.efeitos}</p>
 
                 <br>
 
                 <h3>Valor médio</h3>
-                <p>${medicamento.valor}</p>
+                <p>R$${medicamento.valor}</p>
             `;
 
             const depoisResul = document.getElementById('depois-resul');
@@ -199,15 +202,29 @@
             `;
         }
 
+
+        exibirDetalhes(medicamentos[0]);
+
+
         async function todosMedicamentos() {
             const allMedicamentos = document.getElementById('allMedicamentos');
 
             for (let i = 0; i < medicamentos.length; i++) {
+
+                    
+                function contadorTotal() {
+                    const contadorTotal = document.getElementById('contadorTotal');
+                    contadorTotal.innerHTML = `Total de medicamentos registrados: ${medicamentos.length}`;
+                }
+                contadorTotal();
+
                 const remedio = medicamentos[i];
+                if (remedio.descricao === undefined) {
+                    remedio.descricao = '';
+                }
                 const unidadeMedicamento = document.createElement('div');
                 unidadeMedicamento.classList.add('unidadeMedicamento');
                 unidadeMedicamento.id = `unidade${remedio.nome}`;
-
                 unidadeMedicamento.innerHTML = `
                     <h3>${remedio.nome}</h3>
                     <img src="${remedio.url}">
@@ -221,8 +238,9 @@
                     exibirDetalhes(remedio);
                     const centroDivDiv = document.getElementById('resultado');
                     centroDivDiv.scrollIntoView({ behavior: 'smooth' });
-                })
+                });
             }
+
         }
 
         todosMedicamentos();
@@ -321,6 +339,8 @@
         inputMedicamento.addEventListener('input', pesquisarMedicamento);
 
         toggleListaResultados(false);
+
+
 
 
 
