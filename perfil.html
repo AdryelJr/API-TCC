@@ -63,8 +63,11 @@
 
         .foto-perfil img {
             margin: 2em;
+            margin-left: 10vh;
             border-radius: 50%;
             max-width: 150px;
+            min-height: 150px;
+            background-size: cover;
         }
 
         .informacoes {
@@ -75,7 +78,7 @@
             margin-top: 0;
         }
 
-        
+
         #btnSair {
             background-color: #585858;
             padding: .5em 1em;
@@ -112,6 +115,7 @@
         footer a:hover {
             text-decoration: underline;
         }
+
     </style>
 </head>
 
@@ -124,9 +128,14 @@
     </header>
 
     <section class="perfil">
-        <div class="foto-perfil">
-            <img id="img" src="https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-400-151766550.jpg" alt="Foto de Perfil">
+        <div class="profile foto-perfil">
+            <img id="profile-image"
+                src="https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-400-151766550.jpg"
+                alt="Foto de Perfil"> <br>
+            <input type="file" id="photoButton"></input>
+            <br><br>
         </div>
+
 
         <div class="informacoes">
             <h2 id="nome"></h2>
@@ -143,6 +152,7 @@
     </footer>
 
     <script type="module">
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 
@@ -192,6 +202,19 @@
                 } else {
                     dataCriacao.innerText = "Data de criação não disponível";
                 }
+
+
+                const storage = getStorage();
+                const storageRef = ref(storage, `imgPerfil/${idUser}`);
+                getDownloadURL(storageRef)
+                    .then((url) => {
+                        const profileImage = document.getElementById('profile-image');
+                        profileImage.src = url;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
+
             } else {
                 console.log('Usuário não autenticado');
             }
@@ -210,6 +233,29 @@
                 console.error('Erro ao deslogar:', error);
             });
         })
+
+
+
+
+
+        const storage = getStorage();
+        const storageRef = ref(storage, `imgPerfil/${idUser}`);
+        const fileBtn = document.getElementById('photoButton');
+
+
+        fileBtn.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            uploadBytes(storageRef, file).then((snapshot) => {
+                console.log('Uploaded terminado com sucesso!');
+            });
+        });
+
+
+
+
+
+
+
     </script>
 </body>
 

@@ -40,9 +40,19 @@
             <span>BuscaPharma</span>
         </div>
         <div class="perfil-baixo">
-            <a id="usuarioNomeA" href="login.html"><i class="fa-solid fa-user"></i>Login</a>
-            <a id="usuarioNomeB" href="perfil.html"><i class="fa-solid fa-user"></i><span id="usuarioNome"></span></a>
-            <a href="#" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i>Sair</a>
+            <a id="usuarioNomeA" href="login.html"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
+
+            
+            <div id="userBBB">
+                <span id="usuarioNomeBBB"></span>
+            </div>
+            <div>
+                <a id="usuarioNomeB" href="perfil.html"><span id="usuarioNome"></span></a>
+            </div>
+            
+        </div>
+        <div class="perfil-baixo perfil-baixoA">
+            <a href="#" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a>
         </div>
 
         <div id="contadorTotal"></div>
@@ -127,7 +137,7 @@
     <script type="module">
 
 
-
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-storage.js";
 
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 
@@ -211,7 +221,7 @@
 
             for (let i = 0; i < medicamentos.length; i++) {
 
-                    
+
                 function contadorTotal() {
                     const contadorTotal = document.getElementById('contadorTotal');
                     contadorTotal.innerHTML = `Total de medicamentos registrados: ${medicamentos.length}`;
@@ -258,9 +268,24 @@
             const usuarioNomeB = document.getElementById('usuarioNomeB');
             const usuarioNome = document.getElementById('usuarioNome');
             if (user) {
-                usuarioNome.innerText = user.displayName;
+                usuarioNome.innerHTML = `${user.displayName}`;
                 console.log('Nome:', user.displayName);
                 usuarioNomeA.style.display = 'none';
+
+                const imgusuario = document.getElementById('usuarioNomeBBB');
+                imgusuario.innerHTML =`<img id="profile-image" src="https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-400-151766550.jpg" alt="" width="50px" border-radius="50px">`;
+
+
+                const storage = getStorage();
+                const storageRef = ref(storage, `imgPerfil/${idUser}`);
+                getDownloadURL(storageRef)
+                    .then((url) => {
+                        const profileImage = document.getElementById('profile-image');
+                        profileImage.src = url;
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             } else {
                 console.log('Usuário não autenticado');
                 usuarioNomeB.style.display = 'none';
