@@ -106,10 +106,56 @@
         form button:hover {
             background-color: #0694b4;
         }
+
+        .notificacaoVerde {
+            background-color: rgb(236, 236, 236);
+            color: green;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .notificacaoVermelho1 {
+            background-color: rgb(236, 236, 236);
+            color: red;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .notificacaoVermelho2 {
+            background-color: rgb(236, 236, 236);
+            color: red;
+            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            border-radius: 5px;
+            display: none;
+            transition: all 0.4s ease-in-out;
+        }
     </style>
 </head>
 
 <body>
+    <div id="notificacaoVerde" class="notificacaoVerde">
+        Entrando...
+    </div>
+    <div id="notificacaoVermelho1" class="notificacaoVermelho1">
+        Endereço de email inválido.
+    </div>
+    <div id="notificacaoVermelho2" class="notificacaoVermelho2">
+        Email ou senha incorreto.
+    </div>
+
     <div class="wrapper">
         <h1 class="h1">Autenticação</h1>
         <div class="todo">
@@ -171,7 +217,10 @@
                     } else {
                         console.log('eeeeeeeeeeeeeeeeeee')
                     }
-                    alert("Login successful");
+
+                    setTimeout(function () {
+                        mostrarNotificacaoVerde();
+                    }, 2000);
                     window.location.replace('index.html');
                 })
                 .catch(function (error) {
@@ -180,22 +229,43 @@
 
                     switch (errorCode) {
                         case 'auth/invalid-email':
-                            alert("Endereço de email inválido.");
-                            break;
-                        case 'auth/email-already-in-use':
-                            alert("Este endereço de email já está em uso.");
-                            break;
-                        case 'auth/weak-password':
-                            alert("A senha deve ter pelo menos 6 caracteres.");
+                            mostrarNotificacaoVermelho1();
                             break;
                         case 'auth/invalid-login-credentials':
-                            alert("Email ou senha incorreto.");
+                            mostrarNotificacaoVermelho2();
                             break;
                         default:
                             alert(errorMessage);
                     }
                 });
         };
+
+
+
+        function mostrarNotificacaoVerde() {
+            var notificacaoVerde = document.getElementById("notificacaoVerde");
+            notificacaoVerde.style.display = "block";
+            setTimeout(function () {
+                notificacaoVerde.style.display = "none";
+            }, 4000);
+        }
+
+        function mostrarNotificacaoVermelho1() {
+            var notificacaoVermelho1 = document.getElementById("notificacaoVermelho1");
+            notificacaoVermelho1.style.display = "block";
+            setTimeout(function () {
+                notificacaoVermelho1.style.display = "none";
+            }, 4000);
+        }
+
+        function mostrarNotificacaoVermelho2() {
+            var notificacaoVermelho2 = document.getElementById("notificacaoVermelho2");
+            notificacaoVermelho2.style.display = "block";
+            setTimeout(function () {
+                notificacaoVermelho2.style.display = "none";
+            }, 4000);
+        }
+
     </script>
 </body>
 
