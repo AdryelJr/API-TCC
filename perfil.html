@@ -115,7 +115,6 @@
         footer a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 
@@ -171,8 +170,6 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        const idUser = localStorage.getItem('uid');
-        console.log(idUser)
 
         const auth = getAuth();
 
@@ -181,7 +178,16 @@
             return new Date(data).toLocaleDateString('pt-BR', options);
         }
 
+        let idUser;
+
         auth.onAuthStateChanged((user) => {
+            if (localStorage.getItem('uid')) {
+                idUser = localStorage.getItem('uid');
+            } else {
+                idUser = user.uid;
+            }
+            console.log(idUser);
+
             const img = document.getElementById('img');
             const nome = document.getElementById('nome');
             const email = document.getElementById('email');

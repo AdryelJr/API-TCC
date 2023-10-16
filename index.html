@@ -40,19 +40,21 @@
             <span>BuscaPharma</span>
         </div>
         <div class="perfil-baixo">
-            <a id="usuarioNomeA" href="login.html"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
+            <a id="usuarioNomeA" href="login.html"><i
+                    class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
 
-            
+
             <div id="userBBB">
                 <span id="usuarioNomeBBB"></span>
             </div>
             <div>
                 <a id="usuarioNomeB" href="perfil.html"><span id="usuarioNome"></span></a>
             </div>
-            
+
         </div>
         <div class="perfil-baixo perfil-baixoA">
-            <a href="#" id="btnSair"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a>
+            <a href="#" id="btnSair"><i
+                    class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sair</a>
         </div>
 
         <div id="contadorTotal"></div>
@@ -258,12 +260,20 @@
 
 
 
-        const idUser = localStorage.getItem('uid');
-        console.log(idUser);
+
 
         const auth = getAuth();
 
+        let idUser;
+
         auth.onAuthStateChanged((user) => {
+            if (localStorage.getItem('uid')) {
+                idUser = localStorage.getItem('uid');
+            } else {
+                idUser = user.uid;
+            }
+            console.log(idUser);
+
             const usuarioNomeA = document.getElementById('usuarioNomeA');
             const usuarioNomeB = document.getElementById('usuarioNomeB');
             const usuarioNome = document.getElementById('usuarioNome');
@@ -273,7 +283,7 @@
                 usuarioNomeA.style.display = 'none';
 
                 const imgusuario = document.getElementById('usuarioNomeBBB');
-                imgusuario.innerHTML =`<img id="profile-image" src="https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-400-151766550.jpg" alt="" width="50px" border-radius="50px">`;
+                imgusuario.innerHTML = `<img id="profile-image" src="https://img.myloview.com.br/adesivos/avatar-cabeca-perfil-silhueta-chamada-centro-masculino-foto-400-151766550.jpg" alt="" width="50px" border-radius="50px">`;
 
 
                 const storage = getStorage();
