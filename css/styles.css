@@ -258,3 +258,17 @@ footer div a {
 footer div p {
     text-decoration: none;
 }
+
+#rolamentoPraCima{
+    color: green;
+    font-size: 3.5em;
+    position: absolute;
+    left: 80px;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+#rolamentoPraCima:hover{
+    color: rgb(4, 179, 4);
+}

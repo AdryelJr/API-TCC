@@ -122,6 +122,7 @@
 
 
     <footer>
+        <button id="rolamentoPraCima"><i class="fa-solid fa-circle-arrow-up"></i></button>
         <div class="div-footer">
             <div>
                 &copy; 2023 - Adryel + Alex
@@ -378,6 +379,15 @@
         toggleListaResultados(false);
 
 
+
+
+
+
+        const btnPraCima = document.getElementById('rolamentoPraCima');
+        btnPraCima.addEventListener('click', function () {
+                    const centroDivDiv = document.getElementById('header-principal');
+                    centroDivDiv.scrollIntoView({ behavior: 'smooth' });
+                });
 
 
 
