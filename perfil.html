@@ -254,9 +254,17 @@
 
         fileBtn.addEventListener('change', (e) => {
             const file = e.target.files[0];
-            uploadBytes(storageRef, file).then((snapshot) => {
-                console.log('Uploaded terminado com sucesso!');
-            });
+            if (file) {
+                const storage = getStorage();
+                const storageRef = ref(storage, `imgPerfil/${idUser}`);
+                uploadBytes(storageRef, file)
+                    .then((snapshot) => {
+                        console.log('Uploaded terminado com sucesso!');
+                    })
+                    .catch(error => {
+                        console.error("Erro ao fazer upload do arquivo", error)
+                    })
+            }
         });
 
 
